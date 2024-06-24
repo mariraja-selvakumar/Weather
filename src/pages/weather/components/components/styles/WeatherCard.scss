@@ -1,0 +1,25 @@
+@import "../../../../../constants/variables.scss";
+@import "../../../../../constants/mixins.scss";
+
+.weather-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent !important;
+  border-radius: 10px;
+  border: 1px solid $white;
+  padding: 20px;
+
+  .weather-icon > img {
+    height: 50px;
+    width: 50px;
+    color: #fff;
+  }
+
+  .weather-content {
+    h6 {
+      @include font($white, $h3, 600);
+    }
+  }
+}

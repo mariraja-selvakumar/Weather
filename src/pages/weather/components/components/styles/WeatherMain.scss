@@ -1,0 +1,33 @@
+@import "../../../../../constants/variables.scss";
+@import "../../../../../constants/mixins.scss";
+
+.weather-main {
+  position: absolute;
+  top: 15%;
+  right: 0;
+  left: 0;
+  padding: 15px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  .weather-child-1,
+  .weather-child-2 {
+    padding: 15px;
+
+    h1 {
+      @include font($white, $h1, "bold");
+    }
+
+    h6 {
+      @include font($white, $h2, "bold");
+    }
+
+    img {
+      height: 50px;
+      width: 50px;
+    }
+  }
+}
