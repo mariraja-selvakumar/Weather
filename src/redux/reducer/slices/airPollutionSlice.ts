@@ -44,13 +44,11 @@ export type AirQualityResponse = {
 interface InitialState {
   isLoading: boolean;
   data: AirQualityResponse | null;
-  error: AxiosError | string | null;
 }
 
 const initialState: InitialState = {
   isLoading: false,
   data: null,
-  error: null,
 };
 
 export const airPollutionDetails = createAsyncThunk<
@@ -78,20 +76,17 @@ const airPollutionSlice = createSlice({
       .addCase(airPollutionDetails.pending, (state) => {
         state.isLoading = true;
         state.data = null;
-        state.error = null;
       })
       .addCase(
         airPollutionDetails.fulfilled,
         (state, action: PayloadAction<AirQualityResponse>) => {
           state.isLoading = false;
           state.data = action.payload;
-          state.error = null;
         }
       )
       .addCase(airPollutionDetails.rejected, (state, action) => {
         state.isLoading = false;
         state.data = null;
-        state.error = action.payload as AxiosError;
       });
   },
 });

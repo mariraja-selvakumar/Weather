@@ -68,13 +68,11 @@ interface WeatherResponse {
 interface InitialState {
   isLoading: boolean;
   data: WeatherResponse | null;
-  error: AxiosError | string | null;
 }
 
 const initialState: InitialState = {
   isLoading: false,
   data: null,
-  error: null,
 };
 
 export const weatherDetails = createAsyncThunk<
@@ -102,20 +100,17 @@ const weatherSlice = createSlice({
       .addCase(weatherDetails.pending, (state) => {
         state.isLoading = true;
         state.data = null;
-        state.error = null;
       })
       .addCase(
         weatherDetails.fulfilled,
         (state, action: PayloadAction<WeatherResponse>) => {
           state.isLoading = false;
           state.data = action.payload;
-          state.error = null;
         }
       )
       .addCase(weatherDetails.rejected, (state, action) => {
         state.isLoading = false;
         state.data = null;
-        state.error = action.payload as AxiosError;
       });
   },
 });

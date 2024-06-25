@@ -1,0 +1,22 @@
+.custom-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  img {
+    height: 200px;
+    width: 200px; /* Adjust the size as needed */
+    animation: twinkle 1.5s infinite ease-in-out;
+  }
+
+  @keyframes twinkle {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.3;
+    }
+  }
+}
